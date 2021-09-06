@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
+body {
+	margin: 0;
+	background: rgb(150, 150, 150);
+	font-family: 'Work Sans', sans-serif;
+	font-weight: 800;
+}
+
+.container {
+	width: 80%;
+	margin: 0 auto;
+}
+
+header {
+  background: #55a2d6;
+  position: fi;
+}
+
+header::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.logo {
+  float: left;
+  padding: 10px 0;
+  font-family: 'Work sans', sans-serif;
+}
+
+nav {
+  float: right;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 70px;
+  padding-top: 23px;
+
+  position: relative;
+}
+
+nav a.topnav {
+  color: rgb(2, 2, 2);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+nav a.topnav:hover {
+    color: rgb(80, 80, 80);
+}
+
+nav a.topnav::before {
+  content: '';
+  display: block;
+  height: 3px;
+  background-color: rgb(80, 80, 80);
+
+  position: absolute;
+  top: 40%;
+  width: 0%;
+
+  transition: all ease-in-out 250ms;
+}
+
+nav a.topnav:hover::before {
+  width: 100%;
+}
+
+h1{
+    font-size: x-large;
+}
+
+h2{
+    font-size: larger;
+}
+
+h3{
+    font-size: large;
+}  
+.navabout{
+    position: static;
+    top: auto;
+    left:0;
+    width: 150px;
+    height: 100%;
+    background: #55a2d6;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0px 0px 25px 25px;
+    padding-block-end: 30px;
+}
+main{
+margin-left: 150px;
+padding: 10px;
+color: rgb(0, 0, 0);
+margin-top: -230px
+}
+a.alinks{
+    color: rgb(2, 2, 2);
+    text-decoration: none;
+    font-size: 12px;
+    margin-left: 0%;
+}
+
+a.alinks::before {
+    content: '';
+    display: block;
+    height: 2px;
+    background-color: rgb(80, 80, 80);
+  
+    position: absolute;
+    top: 60%;
+    width: 0%;
+  
+    transition: all ease-in-out 250ms;
+  }
+a.alinks:hover::before {
+    width: 100%;
+  }
+
+  p{
+    font-size: 14px;
+  }
+  img.kevin{
+    margin-right: 10px;
+  }
+  div.homepage {
+    margin-left:20px;
+    margin-top:10px;
+  }
