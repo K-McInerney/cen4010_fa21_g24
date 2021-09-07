@@ -129,8 +129,9 @@ a.alinks:hover::before {
   p{
     font-size: 14px;
   }
-  img.kevin{
+  img.portrait{
     margin-right: 10px;
+	border: 2px solid #555;
   }
   div.homepage {
     margin-left:20px;
