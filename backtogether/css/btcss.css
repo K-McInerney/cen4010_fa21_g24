@@ -16,10 +16,9 @@ a:visited{
 }
 .backtogether{
     text-shadow: 1px 1px 2.5px rgb(81, 81, 255);
+    color: rgb(0, 0, 0);
     font-family: fantasy;
 }
 .icon-bar{
     background:rgb(0, 0, 0);
 }
-
-
