@@ -23,7 +23,7 @@ require 'std_head.php';
                 </div>
 
                 <form action="login.php#trylogin">
-                    <input type="text" id="login" name="login" placeholder="username">
+                    <input type="text" id="username" name="login" placeholder="username">
                     <input type="text" id="password" name="login" placeholder="password">
                     <input type="submit" value="Log In">
                 </form>
