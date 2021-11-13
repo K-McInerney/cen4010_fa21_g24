@@ -9,46 +9,49 @@
 
     <body>
 
-    <?php
-    require 'std_navbar.php';
-    ?>
+        <?php
+        require 'std_navbar.php';
+        ?>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-s-6">
-                    <form action="index.php#search" method="post">
-                        <input type="text" name="search" id="search">
-                        <input type="submit" name="submit" value="Search">
-                    </form>
-                </div>
-                <div class="col-s-6">
-                <?php 
-                if (isset($_POST['search']))
-                {
-                    $search = "%" . $_POST['search'] . "%";
-                    $results = Database::Query("SELECT `type`,`first_name`,`last_name`,`location`,`profile_desc` FROM `users` WHERE `first_name` LIKE ? OR `last_name` LIKE ?;", $search, $search);
-                    
-                    if (!empty($results))
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-s-6">
+                        <form action="index.php#search" method="post">
+                            <label for="search"></label>
+                            <input type="text" name="search" id="search">
+                            <input type="submit" name="submit" value="Search">
+                        </form>
+                    </div>
+                    <div class="col-s-6">
+                    <?php
+                    if (isset($_POST['search']))
                     {
-                        echo "<table class=\"table table-striped table-hover\">";
-                        echo "<thead><th scope=\"col\"> Name </th><th scope=\"col\"> Description </th></tr></thead><tbody>";
-                        
-                        foreach ($results as $row)
+                        $search = "%" . $_POST['search'] . "%";
+                        $results = Database::Query("SELECT `type`,`first_name`,`last_name`,`location`,`profile_desc` FROM `users` WHERE `first_name` LIKE ? OR `last_name` LIKE ?;", $search, $search);
+
+                        if (!empty($results))
                         {
-                            echo "<tr><td><div class=\"profile_name\">" . $row['first_name'] . " " . $row['last_name'] . "</div></td><td><div class=\"profile_desc\">" . $row['profile_desc'] . "</div></td></tr>";
-                        }
-                    }
-                    else
-                    {
-                        echo "<div class=\"alert alert-primary\" role=\"alert\"> No results found! </div>";
-                    }
+                            echo "<table class=\"table table-striped table-hover\">";
+                            echo "<thead><th scope=\"col\"> Name </th><th scope=\"col\"> Description </th></tr></thead><tbody>";
 
-                    echo "</tbody>";
-                    echo "</table>";
-                }
-                ?>
+                            foreach ($results as $row)
+                            {
+                                echo "<tr><td><div class=\"profile_name\">" . $row['first_name'] . " " . $row['last_name'] . "</div></td><td><div class=\"profile_desc\">" . $row['profile_desc'] . "</div></td></tr>";
+                            }
+                        }
+                        else
+                        {
+                            echo "<div class=\"alert alert-primary\" role=\"alert\"> No results found! </div>";
+                        }
+
+                        echo "</tbody>";
+                        echo "</table>";
+                    }
+                    ?>
+                    </div>
                 </div>
             </div>
-        </div>
+        </main>
     </body>
 </html>

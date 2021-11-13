@@ -7,9 +7,7 @@ a:link{
 a:visited{
     color: darkslategray;
 }
-.header{
-    height:100vh;
-}
+
 .navbar-style{
     box-shadow: 0 5px 10px rgb(81, 81, 255);
     background-color: rgb(81, 81, 255);
