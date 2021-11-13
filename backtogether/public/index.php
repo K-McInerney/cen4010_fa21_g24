@@ -17,13 +17,6 @@
             <div class="container">
                 <div class="row">
                     <div class="col-s-6">
-                        <form action="index.php#search" method="post">
-                            <label for="search"></label>
-                            <input type="text" name="search" id="search">
-                            <input type="submit" name="submit" value="Search">
-                        </form>
-                    </div>
-                    <div class="col-s-6">
                     <?php
                     if (isset($_POST['search']))
                     {
