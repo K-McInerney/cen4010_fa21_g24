@@ -10,11 +10,13 @@ class Database
     {
         if ($force == true || self::$pdo == null)
         {
-            $host = '127.0.0.1';
-            $db   = 'cen4010_fa21_g24';
-            $user = 'cen4010_fa21_g24';
-            $pass = 'edCgcpgTkp';
-            $charset = 'utf8mb4';
+            $db_credentials = parse_ini_file("../credentials.ini");
+
+            $host       = '127.0.0.1';
+            $db         = $db_credentials['db_name'];
+            $user       = $db_credentials['db_user'];
+            $pass       = $db_credentials['db_password'];
+            $charset    = 'utf8mb4';
     
             $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
             $options = [
