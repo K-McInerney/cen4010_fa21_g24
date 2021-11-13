@@ -1,45 +1,17 @@
 <!DOCTYPE html>
 
-<?php
-require 'db.php';
-?>
+<html lang="en">
 
-<html>
-    <head>
-        <title>BackTogether</title>
-        <link rel="stylesheet" href="css/btcss.css">
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <?php
+    require 'db.php';
+    require 'std_head.php';
+    ?>
 
-        <!-- jQuery library -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-        <!-- Latest compiled JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    </head>
     <body>
-        <header class="header">
-        <nav class="navbar navbar-style test">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myicon">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <h2 class="backtogether"><img src="img/bt.png" width="40"> Back Together</h2>
-                </div>
-                <div class="collapse navbar-collapse" id="myicon">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="">Notifations</a></li>
-                    <li><a href="">Messages</a></li>
-                    <li><a href="">Profile</a></li>
-                    <li><a href="../index.html">About Us</a></li>
-                </ul>
-            </div>
-            </div>
-        </nav>
+
+    <?php
+    require 'std_navbar.php';
+    ?>
 
         <div class="container">
             <div class="row">
@@ -68,20 +40,15 @@ require 'db.php';
                     }
                     else
                     {
-                        echo "<div class=\"alert alert-primary\" role=\"alert\">
-                        No results found!
-                        </div>";
+                        echo "<div class=\"alert alert-primary\" role=\"alert\"> No results found! </div>";
                     }
 
                     echo "</tbody>";
+                    echo "</table>";
                 }
                 ?>
-                        </tbody>
-                    </table>
                 </div>
             </div>
-        </div>  
-        <script type="text/javascript" src="p3javascript.js"></script>
-        </header>
+        </div>
     </body>
 </html>
