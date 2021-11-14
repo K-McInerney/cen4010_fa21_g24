@@ -3,13 +3,17 @@
 <html lang="en">
 
     <?php
+    // Allow page to use database functions by including the database class
     require 'db.php';
+
+    // Include all of our stylesheets and javascript
     require 'std_head.php';
     ?>
 
     <body>
 
         <?php
+        // Add navbar to top of page
         require 'std_navbar.php';
         ?>
 

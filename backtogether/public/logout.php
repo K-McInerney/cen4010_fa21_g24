@@ -11,8 +11,11 @@ require 'std_head.php';
     <body>
 
     <?php
+    // Add logoutpage variable so that the navbar shows the log out button
     $logoutpage = true;
     require 'std_navbar.php';
+
+    // Log the user out by destroying the session
     session_destroy();
     ?>
 
