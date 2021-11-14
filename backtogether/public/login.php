@@ -9,35 +9,41 @@ require 'std_head.php';
 
     <body>
 
-    <?php
-    require 'std_navbar.php';
-    ?>
+        <?php
+        require 'std_navbar.php';
+        ?>
 
-    <main>
+        <main>
 
-        <div class="wrapper fadeIn">
-            <div id="formContent">
+            <div class="wrapper fadeIn">
+                <div id="formContent">
 
-                <div>
-                    <img src="img/bt.svg" id="icon" alt="User Icon" />
+                    <div>
+                        <img src="img/bt.svg" id="icon" alt="User Icon" />
+                    </div>
+
+                    <form action="login.php#trylogin" method="post">
+                        <input type="text" id="username" name="username" placeholder="username">
+                        <input type="password" id="password" name="password" placeholder="password">
+                        <input type="submit" name="submit" value="Log In">
+                    </form>
+
+                    <?php
+                    require 'trylogin.php';
+                    ?>
+
+                    <form action="login.php#tryregister" method="post">
+                        <input type="text" id="register_username" name="register" placeholder="username">
+                        <input type="text" id="register_firstname" name="register" placeholder="first name">
+                        <input type="text" id="register_lastname" name="register" placeholder="last name">
+
+                        <input type="password" id="register_password" name="register" placeholder="password">
+                        <input type="password" id="register_confirmpassword" name="register" placeholder="confirm password">
+
+                        <input type="submit" value="Register">
+                    </form>
                 </div>
-
-                <form action="login.php#trylogin">
-                    <input type="text" id="username" name="login" placeholder="username">
-                    <input type="text" id="password" name="login" placeholder="password">
-                    <input type="submit" value="Log In">
-                </form>
-
-                <form action="login.php#tryregister">
-                    <input type="text" id="register_username" name="register" placeholder="username">
-                    <input type="text" id="register_firstname" name="register" placeholder="first name">
-                    <input type="text" id="register_lastname" name="register" placeholder="last name">
-
-                    <input type="text" id="register_password" name="register" placeholder="password">
-                    <input type="text" id="register_confirmpassword" name="register" placeholder="confirm password">
-
-                    <input type="submit" value="Register">
-                </form>
-
             </div>
-        </div>
+        </main>
+    </body>
+</html>
