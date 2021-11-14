@@ -1,3 +1,17 @@
+<?php
+
+session_start();
+
+if (isset($_SESSION['loggedin']))
+{
+    if ($_SESSION['time'] - time() > 600)
+        header("Location: logout.php");
+    else
+        $_SESSION['time'] = time();
+}
+
+?>
+
 <header>
   <nav class="navbar navbar-expand-lg navbar-light navbar-style">
       <a class="navbar-brand" href="#"><img src="img/bt.png" width="40"> BackTogether</a>
@@ -11,8 +25,8 @@
                   <a class="nav-link" href="/index.php">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                  <?php if (isset($_SESSION['username'])) { ?>
-                  <a class="nav-link" href="/login.php#logout">Log Out</a>
+                  <?php if (isset($_SESSION['loggedin']) && !isset($logoutpage)) { ?>
+                  <a class="nav-link" href="/logout.php">Log Out</a>
                   <?php } else { ?>
                   <a class="nav-link" href="/login.php">Log In</a>
                   <?php } ?>
@@ -23,8 +37,8 @@
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="submit">Search</button>
           </form>
           <?php
-          if (isset($_SESSION['username'])) {
-              echo "<a class=\"my-2 my-lg-0\">Logged in as" . $_SESSION['firstname'] . " " . $_SESSION['lastname'] . "</a>";
+          if (isset($_SESSION['loggedin'])) {
+              echo "<a class=\"my-2 my-lg-0\"> Logged in as " . $_SESSION['first_name'] . " " . $_SESSION['last_name'] . "</a>";
           } ?>
       </div>
   </nav>

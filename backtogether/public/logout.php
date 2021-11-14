@@ -1,8 +1,3 @@
-<?php
-
-session_destroy();
-
-?>
 
 <!DOCTYPE html>
 
@@ -16,7 +11,9 @@ require 'std_head.php';
     <body>
 
     <?php
+    $logoutpage = true;
     require 'std_navbar.php';
+    session_destroy();
     ?>
 
         <main>
