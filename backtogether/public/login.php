@@ -31,17 +31,6 @@ require 'std_head.php';
                     <?php
                     require 'trylogin.php';
                     ?>
-
-                    <form action="login.php#tryregister" method="post">
-                        <input type="text" id="register_username" name="register" placeholder="username">
-                        <input type="text" id="register_firstname" name="register" placeholder="first name">
-                        <input type="text" id="register_lastname" name="register" placeholder="last name">
-
-                        <input type="password" id="register_password" name="register" placeholder="password">
-                        <input type="password" id="register_confirmpassword" name="register" placeholder="confirm password">
-
-                        <input type="submit" value="Register">
-                    </form>
                 </div>
             </div>
         </main>

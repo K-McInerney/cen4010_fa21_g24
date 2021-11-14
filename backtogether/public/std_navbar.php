@@ -27,14 +27,19 @@ if (isset($_SESSION['loggedin']))
               <li class="nav-item active">
                   <a class="nav-link" href="/index.php">Home <span class="sr-only">(current)</span></a>
               </li>
+              <?php // Determine whether to show the log in or log out button on the navbar
+              if (isset($_SESSION['loggedin']) && !isset($logoutpage)) { ?>
               <li class="nav-item">
-                  <?php // Determine whether to show the log in or log out button on the navbar
-                  if (isset($_SESSION['loggedin']) && !isset($logoutpage)) { ?>
                   <a class="nav-link" href="/logout.php">Log Out</a>
-                  <?php } else { ?>
-                  <a class="nav-link" href="/login.php">Log In</a>
-                  <?php } ?>
               </li>
+              <?php } else { ?>
+              <li class="nav-item">
+                  <a class="nav-link" href="/login.php">Log In</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/register.php">Register</a>
+              </li>
+              <?php } ?>
           </ul>
           <form action="results.php#search" method="post" class="form-inline my-2 my-lg-0">
               <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" id="search">
