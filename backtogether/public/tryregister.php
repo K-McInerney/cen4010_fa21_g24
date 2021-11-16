@@ -17,7 +17,7 @@ if (isset($_POST['register_username'])) {
         $first_name = $_POST['register_firstname'];
         $last_name = $_POST['register_lastname'];
 
-        Database::Query("INSERT INTO users (`username`, `first_name` , `last_name`, `password_hash`) VALUES (?, ?, ?, ?)", $username, $first_name, $last_name, $password_hash);
+        Database::QueryNoReturn("INSERT INTO users (`username`, `first_name` , `last_name`, `password_hash`) VALUES (?, ?, ?, ?)", $username, $first_name, $last_name, $password_hash);
 
         // TODO: Add something on the login page at #registered that acknowledges successful account creation.
         header("Location: login.php#registered");

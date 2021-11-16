@@ -34,13 +34,19 @@ class Database
             }
         }
     }
-    
+
+    public static function QueryNoReturn($query, ...$args)
+    {
+        $stmt = (self::$pdo)->prepare($query);
+        $stmt->execute($args);
+    }
+
     public static function Query($query, ...$args)
     {
         $stmt = (self::$pdo)->prepare($query);
         $stmt->execute($args);
-        $results = $stmt->fetchAll();
-        return $results;
+        return $stmt->fetchAll();
     }
+
 
 }
