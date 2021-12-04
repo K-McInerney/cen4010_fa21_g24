@@ -3,8 +3,13 @@
 <html lang="en">
 
 <?php
+
 require 'db.php';
 require 'std_head.php';
+
+if (Session::LoggedIn())
+    header("Location: index.php");
+
 ?>
 
     <body>
