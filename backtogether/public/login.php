@@ -25,6 +25,8 @@ require 'std_head.php';
                     <form action="login.php#trylogin" method="post">
                         <input type="text" id="username" name="username" placeholder="username">
                         <input type="password" id="password" name="password" placeholder="password">
+                        <input type="hidden" id="latitude" name="latitude">
+                        <input type="hidden" id="longitude" name="longitude">
                         <input type="submit" name="submit" value="Log In">
                     </form>
 
@@ -35,4 +37,7 @@ require 'std_head.php';
             </div>
         </main>
     </body>
+
+    <script src="js/location.js"></script>
+
 </html>
