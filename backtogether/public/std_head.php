@@ -1,3 +1,24 @@
+<?php
+
+require "session.php";
+
+// Start the session, this allows any page using the navbar to know if a user is logged in or not
+session_start();
+
+// Check if user is logged in
+if (isset($_SESSION['loggedin']))
+{
+    $user = Session::GetUser();
+
+    // If the time since you last loaded the navbar is over 10 minutes, log out by redirecting to logout page
+    if ($user->time - time() > 600)
+        header("Location: logout.php");
+    else
+        $user->UpdateTime(time());
+}
+
+?>
+
 <head>
     <title>BackTogether</title>
     <link rel="stylesheet" href="css/btcss.css">

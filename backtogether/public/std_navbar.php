@@ -1,20 +1,3 @@
-<?php
-
-// Start the session, this allows any page using the navbar to know if a user is logged in or not
-session_start();
-
-// Check if user is logged in
-if (isset($_SESSION['loggedin']))
-{
-    // If the time since you last loaded the navbar is over 10 minutes, log out by redirecting to logout page
-    if ($_SESSION['time'] - time() > 600)
-        header("Location: logout.php");
-    else
-        $_SESSION['time'] = time();
-}
-
-?>
-
 <header>
   <nav class="navbar navbar-expand-lg navbar-light navbar-style">
       <a class="navbar-brand" href="#"><img src="img/bt.png" width="40"> BackTogether</a>
@@ -48,8 +31,8 @@ if (isset($_SESSION['loggedin']))
           <?php
           // Show user's full name inside navbar
           // TODO (FRONTEND): Fix the bootstrap here to look better
+              echo "<a class=\"my-2 my-lg-0 mx-2 text-light font-weight-bold\"> Logged in as " . $user->GetFullName() . "</a>";
           if (isset($_SESSION['loggedin']) && !isset($logoutpage)) {
-              echo "<a class=\"my-2 my-lg-0 mx-2 text-light font-weight-bold\"> Logged in as " . $_SESSION['first_name'] . " " . $_SESSION['last_name'] . "</a>";
           } ?>
       </div>
   </nav>

@@ -1,4 +1,5 @@
 <?php
+
 // If a username was sent to the server, continue
 if (isset($_POST['username']))
 {
@@ -26,23 +27,24 @@ if (isset($_POST['username']))
     else
     {
         // Geocoding
-        $apikey_config = parse_ini_file("../api_keys.ini");
-        $geocode = file_get_contents('https://api.geoapify.com/v1/geocode/reverse?lat=' . $_POST['latitude'] . '&lon=' . $_POST['longitude'] . '&apiKey=' . $apikey_config['geocoding_key'] . "");
-        $output = json_decode($geocode);
-        $zipcode = $geocode['features']['properties']['postcode'];
+        $zipcode = 0;
+        if (isset($_POST['latitude']) && isset($_POST['longitude'])) {
+            $apikey_config = parse_ini_file("../api_keys.ini");
+            $geocode = file_get_contents('https://api.geoapify.com/v1/geocode/reverse?lat=' . $_POST['latitude'] . '&lon=' . $_POST['longitude'] . '&apiKey=' . $apikey_config['geocoding_key'] . "");
+            $output = json_decode($geocode);
+            $zipcode = $output->{'features'}->{'properties'}->{'postcode'};
 
-        Database::QueryNoReturn("UPDATE `users` SET `location` = ? WHERE username = ?", $zipcode, $username);
+            Database::QueryNoReturn("UPDATE `users` SET `location` = ? WHERE username = ?", $zipcode, $username);
+        }
 
         // Set our session variables
         foreach ($results as $row) {
+
+            // Session object
+            $user = new Session($username, $row['first_name'], $row['last_name'], $zipcode);
+
             $_SESSION['loggedin'] = true;
-            $_SESSION['time'] = time();
-            $_SESSION['username'] = $username;
-            echo $_SESSION['username'];
-            echo "\n";
-            $_SESSION['first_name'] = $row['first_name'];
-            $_SESSION['last_name'] = $row['last_name'];
-            $_SESSION['location'] = $row['location'];
+            $_SESSION['user'] = serialize($user);
 
             // Redirect back to main page
             header("Location: index.php#loginsuccess");
