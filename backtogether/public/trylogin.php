@@ -28,11 +28,11 @@ if (isset($_POST['username']))
     {
         // Geocoding
         $zipcode = 0;
-        if (isset($_POST['latitude']) && isset($_POST['longitude'])) {
+        if ($_POST['latitude'] && $_POST['longitude']) {
             $apikey_config = parse_ini_file("../api_keys.ini");
             $geocode = file_get_contents('https://api.geoapify.com/v1/geocode/reverse?lat=' . $_POST['latitude'] . '&lon=' . $_POST['longitude'] . '&apiKey=' . $apikey_config['geocoding_key'] . "");
             $output = json_decode($geocode);
-            $zipcode = $output->{'features'}->{'properties'}->{'postcode'};
+            $zipcode = $output->{'features'}['0']->{'properties'}->{'postcode'};
 
             Database::QueryNoReturn("UPDATE `users` SET `location` = ? WHERE username = ?", $zipcode, $username);
         }

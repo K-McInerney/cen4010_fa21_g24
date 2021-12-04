@@ -3,8 +3,6 @@ var x = document.getElementById("formContent");
 window.onload = function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(setvals);
-    } else {
-        x.innerHTML = "Browser cannot get location.";
     }
 }
 
