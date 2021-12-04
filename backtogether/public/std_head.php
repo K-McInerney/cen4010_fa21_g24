@@ -6,7 +6,7 @@ require "session.php";
 session_start();
 
 // Check if user is logged in
-if (isset($_SESSION['loggedin']))
+if (isset($_SESSION['loggedin']) && Session::LoggedIn())
 {
     $user = Session::GetUser();
 
@@ -16,6 +16,8 @@ if (isset($_SESSION['loggedin']))
     else
         $user->UpdateTime(time());
 }
+else
+    $_SESSION['loggedin'] = false;
 
 ?>
 

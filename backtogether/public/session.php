@@ -17,18 +17,24 @@ class Session
         $this->time = time();
     }
 
+    public static function LoggedIn()
+    {
+        return ($_SESSION['loggedin']) == true;
+    }
+
     public static function GetUser()
     {
-        if (!$_SESSION['loggedin']) {
+        if (!Session::LoggedIn()) {
             return -1;
         }
 
         return unserialize($_SESSION['user']);
     }
 
+
     public function GetFullName()
     {
-        if (!$_SESSION['loggedin']) {
+        if (!Session::LoggedIn()) {
             return -1;
         }
 
@@ -37,6 +43,11 @@ class Session
 
     public function UpdateTime($time)
     {
+        if (!Session::LoggedIn()) {
+            return -1;
+        }
+
         $this->time = $time;
+        return $time;
     }
 }

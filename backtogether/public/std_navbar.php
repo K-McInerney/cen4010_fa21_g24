@@ -11,7 +11,7 @@
                   <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
               </li>
               <?php // Determine whether to show the log in or log out button on the navbar
-              if (isset($_SESSION['loggedin']) && !isset($logoutpage)) { ?>
+              if (Session::LoggedIn() && !isset($logoutpage)) { ?>
               <li class="nav-item">
                   <a class="nav-link" href="logout.php">Log Out</a>
               </li>
@@ -31,8 +31,9 @@
           <?php
           // Show user's full name inside navbar
           // TODO (FRONTEND): Fix the bootstrap here to look better
-              echo "<a class=\"my-2 my-lg-0 mx-2 text-light font-weight-bold\"> Logged in as " . $user->GetFullName() . "</a>";
-          if (isset($_SESSION['loggedin']) && !isset($logoutpage)) {
+          if (Session::LoggedIn())
+          {
+              echo "<a class=\"my-2 my-lg-0\"> Logged in as " . $user->GetFullName() . "</a>";
           } ?>
       </div>
   </nav>
