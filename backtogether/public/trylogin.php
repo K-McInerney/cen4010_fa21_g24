@@ -15,7 +15,7 @@ if (isset($_POST['username']))
     $username = $_POST['username'];
 
     // Query the database for an account
-    $results = Database::Query("SELECT `first_name`, `last_name`, `type` FROM `users` WHERE `username` = ? AND `password_hash` = ?", $username, $password_hash);
+    $results = Database::Query("SELECT `id`,`first_name`, `last_name`, `type` FROM `users` WHERE `username` = ? AND `password_hash` = ?", $username, $password_hash);
 
     // No account found
     if (empty($results))
@@ -41,7 +41,7 @@ if (isset($_POST['username']))
         foreach ($results as $row) {
 
             // Session object
-            $user = new Session($username, $row['first_name'], $row['last_name'], $row['type'], $zipcode);
+            $user = new Session($row['id'], $username, $row['first_name'], $row['last_name'], $row['type'], $zipcode);
 
             $_SESSION['loggedin'] = true;
             $_SESSION['user'] = serialize($user);

@@ -195,3 +195,7 @@ input[type=text]:placeholder, input[type=password]:placeholder {
 #title-box::placeholder {
     font-size:24px;
 }
+
+.event-field::placeholder {
+    color:lightsteelblue;
+}

@@ -30,8 +30,8 @@ if (Session::LoggedIn())
                     <form action="login.php#trylogin" method="post">
                         <input type="text" id="username" name="username" placeholder="username">
                         <input type="password" id="password" name="password" placeholder="password">
-                        <input type="hidden" id="latitude" name="latitude">
-                        <input type="hidden" id="longitude" name="longitude">
+                        <input type="hidden" id="latitude" name="latitude" hidden>
+                        <input type="hidden" id="longitude" name="longitude" hidden>
                         <input type="submit" name="submit" value="Log In">
                     </form>
 

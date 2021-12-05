@@ -2,6 +2,7 @@
 
 class Session
 {
+    public $userid;
     public $username;
     public $first_name;
     public $last_name;
@@ -9,8 +10,9 @@ class Session
     public $location;
     public $time;
 
-    public function __construct($username, $first_name, $last_name, $type, $location)
+    public function __construct($userid, $username, $first_name, $last_name, $type, $location)
     {
+        $this->userid = $userid;
         $this->username = $username;
         $this->first_name = $first_name;
         $this->type = $type;
