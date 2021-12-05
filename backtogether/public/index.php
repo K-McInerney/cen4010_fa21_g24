@@ -15,8 +15,10 @@
         <?php
         // Add navbar to top of page
         require 'std_navbar.php';
-        ?>
 
+        if (!Session::LoggedIn())
+        {
+        ?>
         <!-- FRONTEND TEAM: Add some clip-art or something here and a few paragraphs explaining the site. -->
         <main>
             <article>
@@ -94,7 +96,13 @@
 				</div>
             </article>
         </main>
-
+        <?php
+        }
+        else
+        {
+            require 'feed.php';
+        }
+        ?>
 
     </body>
 </html>
