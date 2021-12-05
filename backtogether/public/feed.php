@@ -5,7 +5,7 @@
         <div class="col-12 col-md-3 col-xl-2 bd-sidebar bg-dark sidebar-vcenter">
             <ul class="nav flex-sm-column sidebar-vcenter">
                 <li class="sidebar-vcenter">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Filter" aria-label="Filter" name="filter" id="filter">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Filter" aria-label="Filter" name="filter" id="filter" onchange="Filter()">
                 </li>
             </ul>
         </div>

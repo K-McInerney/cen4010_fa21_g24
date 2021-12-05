@@ -12,3 +12,9 @@ function enableEventFields(){
         document.getElementById('event_location').classList.remove('event-field');
     }
 }
+
+function Filter() {
+    let value = document.getElementById('filter').value;
+
+    foreach()
+}
