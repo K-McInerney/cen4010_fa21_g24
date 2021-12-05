@@ -95,6 +95,8 @@
 					</p>
 				</div>
             </article>
+
+            <a class="button" href="register_vendor.php">Vendor Registration</a>
         </main>
         <?php
         }

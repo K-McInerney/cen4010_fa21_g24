@@ -5,16 +5,20 @@ class Session
     public $username;
     public $first_name;
     public $last_name;
+    public $type;
     public $location;
     public $time;
 
-    public function __construct($username, $first_name, $last_name, $location)
+    public function __construct($username, $first_name, $last_name, $type, $location)
     {
         $this->username = $username;
         $this->first_name = $first_name;
-        $this->last_name = $last_name;
+        $this->type = $type;
         $this->location = $location;
         $this->time = time();
+
+        if ($type == 2)
+            $this->last_name = $last_name;
     }
 
     public static function LoggedIn()
@@ -38,7 +42,7 @@ class Session
             return -1;
         }
 
-        return "" . $this->first_name . " " . $this->last_name . "";
+        return ($this->type == 2) ? "" . $this->first_name . " " . $this->last_name . "" : $this->first_name;
     }
 
     public function UpdateTime($time)

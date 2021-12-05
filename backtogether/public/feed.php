@@ -19,10 +19,11 @@
                 </div>
                 <div class="card-body">
                     <div class="form-group">
-                        <textarea class="form-control" id="title-box" rows="1"></textarea>
-                        <textarea class="form-control" id="text-box" rows="3"></textarea>
+                        <textarea class="form-control" id="title-box" rows="1" placeholder="Title"></textarea>
+                        <textarea class="form-control" id="text-box" rows="2" placeholder="Text"></textarea>
                     </div>
-                    <a href="#" class="btn btn-primary">Submit</a>
+
+                    <input class="m-0 mt-3" type="submit" name="submit" value="Submit">
                 </div>
             </div>
         </div>
