@@ -26,7 +26,7 @@ if (isset($_POST['register_username'])) {
     {
         ?>
         <!-- TODO: Make this look better. -->
-        <h3>Passwords don't match.</h3>
+        <h3 class="text-danger">Passwords don't match.</h3>
         <?php
     }
 }
