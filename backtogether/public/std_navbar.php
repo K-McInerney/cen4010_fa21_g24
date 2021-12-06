@@ -49,7 +49,7 @@ if (isset($_SESSION['loggedin']))
           // Show user's full name inside navbar
           // TODO (FRONTEND): Fix the bootstrap here to look better
           if (isset($_SESSION['loggedin'])) {
-              echo "<a class=\"my-2 my-lg-0\"> Logged in as " . $_SESSION['first_name'] . " " . $_SESSION['last_name'] . "</a>";
+              echo "<a class=\"my-2 my-lg-0 mx-2 text-light font-weight-bold\"> Logged in as " . $_SESSION['first_name'] . " " . $_SESSION['last_name'] . "</a>";
           } ?>
       </div>
   </nav>
